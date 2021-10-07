@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@thinkific\.com\z/, message: "You must register using an @thinkific.com account" }
+  validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@thinkific\.com\z/, message: "must be a @thinkific.com account" }
 end

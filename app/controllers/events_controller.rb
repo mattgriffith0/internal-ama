@@ -19,6 +19,12 @@ class EventsController < ApplicationController
   end
 
   def create
+    @event = current_user.events.create(event_params)
+    if @event.save
+      redirect_to @event, notice: "Event created successfully!"
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -28,5 +34,9 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def event_params
+    params.require(:event).permit(:name, :description, :date)
   end
 end

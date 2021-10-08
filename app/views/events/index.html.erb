@@ -1,9 +1,9 @@
-<h1>All Events</h1>
+<h1 class="mb-3">All Events</h1>
 
 <% @events.each do |event| %>
-<div>
+<div class="mb-3">
   <%= event.name %>
 </div>
 <% end %>
 
-<%= link_to "Create a New Event", new_event_path %>
+<%= link_to "Create a New Event", new_event_path, class: 'btn btn-primary' %>

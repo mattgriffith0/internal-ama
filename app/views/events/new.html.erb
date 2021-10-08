@@ -13,8 +13,8 @@
 
   <div class="form-div">
     <%= form.label :date, class: 'form-label' %>
-    <%= form.datetime_select :date, class: 'form-input' %>
+    <%= form.datetime_select :date %>
   </div>
 
-  <%= form.button "Create Event" %>
+  <%= form.button "Create Event", class: 'btn btn-primary' %>
 <% end %>

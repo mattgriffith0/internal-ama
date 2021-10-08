@@ -1,7 +1,15 @@
-<div class="bg-gray-800 text-white font-bold antialiased p-6">
-  <nav class="flex justify-between">
-    <div>
-        <%= link_to "Thinkific AMA", root_path, class: 'text-xl' %>
+<div class="bg-gray-800 text-white antialiased p-6">
+  <nav class="flex justify-around">
+    <div class="flex flex-row items-center">
+      <div>
+        <%= link_to "Thinkific AMA", root_path, class: 'text-3xl font-bold' %>
+      </div>
+      <div>
+        <ul class="flex flex-row">
+          <li class="pl-10"><%= link_to "Events", events_path, class: 'text-md hover:text-gray-400' %></li>
+          <li class="pl-5"><%= link_to "Users", root_path, class: 'text-md hover:text-gray-400' %></li>
+        </ul>
+      </div>
     </div>
     <div class="ml-auto">
       <ul class="flex flex-row">

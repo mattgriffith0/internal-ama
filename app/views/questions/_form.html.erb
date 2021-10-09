@@ -1,0 +1,21 @@
+<%= form_with model: [ @event, question ] do |form| %>
+  <% if form.object.errors.any? %>
+    <div class="alert">
+      <% form.object.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-div">
+    <%= form.label "Question", class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-input'%>
+  </div>
+
+  <div class="form-div">
+    <%= form.label :anonymous, class: 'form-label' %>
+    <%= form.check_box :anonymous, class: 'form-input' %>
+  </div>
+
+  <%= form.button "Submit Question", class: 'btn btn-primary' %>
+<% end %>

@@ -2,7 +2,7 @@
 
 <% @events.each do |event| %>
 <div class="mb-3">
-  <%= event.name %>
+  <%= link_to event.name, event, class: 'text-bold text-lg' %>
 </div>
 <% end %>
 

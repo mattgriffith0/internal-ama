@@ -1,12 +1,20 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def new
     @question = Question.new
   end
 
   def create
-
+    @event = Event.find(params[:event_id])
+    @question = @event.questions.create(question_params)
+    @question.user = current_user
+    if @question.save
+      redirect_to @event, notice: "Question submitted successfully!"
+    else
+      render :new
+    end
   end
 
   def show
@@ -16,6 +24,10 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
 
   def set_question
     @question = Question.find(params[:id])

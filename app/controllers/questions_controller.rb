@@ -23,6 +23,17 @@ class QuestionsController < ApplicationController
   def destroy
   end
 
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @event, notice: "Question updated successfully!"
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_event

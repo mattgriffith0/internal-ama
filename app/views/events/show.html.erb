@@ -1,16 +1,19 @@
-<h1 class="mb-3"><%= @event.name %></h1>
+<h1 class="mb-3 text-4xl"><%= @event.name %></h1>
 
 <% if @event.questions.any? %>
-  <div class="mb-3 flex flex-col">
-    Submitted Questions
-    <br>
-    <div class="flex flex-col">
-      <%= render @event.questions %>
-    </div>
+  <div class="border border-gray-400 p-2 rounded-md mb-3">
+    <h2 class="mb-3 flex flex-col text-2xl px-6">
+      Submitted Questions
+    </h2>
+    <div class="px-6">
+      <div class="flex flex-col">
+        <%= render @event.questions %>
+      </div>
+    </div>  
   </div>
 <% end %>
 
-<h2>Submit a Question:</h2>
-<%= render 'questions/form', question: @event.questions.build %>
-<br>
-<%= link_to "Advanced Question", new_event_question_path(@event), class: 'btn btn-primary' %>
+<div class="border border-gray-400 p-2 rounded-md mb-3">
+  <h2 class="mb-3 text-2xl">Submit a Question:</h2>
+  <%= render 'questions/form', question: @event.questions.build %>
+</div>

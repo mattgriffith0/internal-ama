@@ -14,6 +14,7 @@
     <div class="ml-auto">
       <ul class="flex flex-row">
         <% if user_signed_in? %>
+          <li class="pr-5"><%= link_to current_user.email, user_path(current_user), class: 'hover:text-gray-400' %></li>
           <li class="pr-5"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-secondary-navbar' %></li>
         <% else %>  
           <li class="pr-5"><%= link_to "Sign in", new_user_session_path, class: 'btn btn-secondary-navbar' %></li>

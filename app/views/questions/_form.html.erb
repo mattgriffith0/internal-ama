@@ -12,10 +12,12 @@
     <%= form.text_field :title, class: 'form-input'%>
   </div>
 
-  <div class="form-div">
-    <%= form.label :anonymous, class: 'form-label' %>
+  <% if !question.persisted? %>
+  <div class="form-checkbox-div">
+    <%= form.label "Submit anonymously?", class: 'form-label pr-3' %>
     <%= form.check_box :anonymous, class: 'form-input' %>
   </div>
+  <% end %>
 
   <%= form.button "Submit Question", class: 'btn btn-primary' %>
 <% end %>

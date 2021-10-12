@@ -1,19 +1,32 @@
-<h1 class="mb-3 text-4xl"><%= @event.name %></h1>
-
-<% if @event.questions.any? %>
-  <div class="border border-gray-400 p-2 rounded-md mb-3">
-    <h2 class="mb-3 flex flex-col text-2xl px-6">
-      Submitted Questions
-    </h2>
-    <div class="px-6">
-      <div class="flex flex-col">
-        <%= render @event.questions %>
-      </div>
-    </div>  
+<div class="mb-3 flex flex-col">
+  <div>
+    <h1 class="mb-2 text-4xl"><%= @event.name %></h1>
+    <h1 class="mb-2 text-2xl">Scheduled for <%= @event.date.to_formatted_s(:long_ordinal) %></h1>
   </div>
-<% end %>
+  <div>
+    <h2 class="text-xl"><%= @event.description %></h2>
+  </div>
+</div>
 
 <div class="border border-gray-400 p-2 rounded-md mb-3">
-  <h2 class="mb-3 text-2xl">Submit a Question:</h2>
-  <%= render 'questions/form', question: @event.questions.build %>
+<% if @event.questions.any? %>
+  <h2 class="mb-3 flex flex-col text-2xl px-6">
+      Submitted Questions
+  </h2>
+  <div class="px-6 border-b-2 border-gray-300">
+    <div class="flex flex-col">
+      <%= render @event.questions %>
+    </div>
+  </div>
+<% else %>
+  <h2 class="mb-3 text-2xl-px-6">
+    No questions yet - be the first to submit below!
+  </h2>
+<% end %>
+
+  <div class="py-2 px-6 mb-3">
+    <h2 class="mb-3 text-2xl">Submit a Question:</h2>
+    <%= render 'questions/form', question: @event.questions.build %>
+  </div>
+
 </div>

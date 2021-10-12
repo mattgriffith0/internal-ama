@@ -15,6 +15,9 @@
   .form-div {
     @apply flex flex-col mb-4;
   }
+  .form-checkbox-div {
+    @apply flex flex-row mb-4;
+  }
   .form-datetime-div {
     @apply flex flex-row mb-4;
   }

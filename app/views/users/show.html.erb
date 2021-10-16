@@ -1,8 +1,10 @@
 <h1>View Account</h1>
 
 <% if @questions %>
-  <h2>Submitted questions:</h2>
-  <%= @questions %>
+  <h2 class="mb-3">Submitted questions:</h2>
+  <% @questions.each do |question| %>
+    <%= render partial: 'questions/question', locals: { event: question.event, question: question } %>
+  <% end %>
 <% else %>
   <h2><%= @user.first_name %> hasn't submitted any questions</h2>
 <% end %>

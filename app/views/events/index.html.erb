@@ -1,9 +1,13 @@
-<h1 class="mb-3">All Events</h1>
+<h1 class="mb-3 text-4xl text-center">Upcoming Events</h1>
 
-<% @events.each do |event| %>
-<div class="mb-3">
-  <%= render @events %>
+<div class="mb-3 mx-auto">
+  <% @events.each do |event| %>
+  <div class="mb-3">
+    <%= render @events %>
+  </div>
+  <% end %>
 </div>
-<% end %>
 
-<%= link_to "Create a New Event", new_event_path, class: 'btn btn-primary' %>
+<div class="mb-3">
+  <%= link_to "Create a New Event", new_event_path, class: 'btn btn-primary' %>
+</div>
